@@ -1,10 +1,10 @@
-package builder.nested_bilder;
+package builder.nested_builder;
 
 public class Driver {
     private String name;
     private int id;
 
-    public Driver(String name, int id) {
+    Driver(String name, int id) {
         this.name = name;
         this.id = id;
     }

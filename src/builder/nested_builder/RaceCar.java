@@ -1,4 +1,4 @@
-package builder.nested_bilder;
+package builder.nested_builder;
 
 public class RaceCar {
     private int maxSpeed;
@@ -17,10 +17,11 @@ public class RaceCar {
     }
 
     private RaceCar(Builder builder) {
-        this.maxSpeed = builder.getMaxSpeed();
+        this.maxSpeed = builder.maxSpeed;
         this.numberOfGears = builder.numberOfGears;
         this.modelName = builder.modelName;
         this.driver = builder.driver;
+        builder.restet();
     }
 
 
@@ -35,12 +36,12 @@ public class RaceCar {
         private String modelName;
         private Driver driver;
 
-        public Builder(String modelName, Driver driver) {
+        Builder(String modelName, Driver driver) {
             this.modelName = modelName;
             this.driver = driver;
         }
 
-        public Builder setMaxSpeed(int maxSpeed) {
+        Builder setMaxSpeed(int maxSpeed) {
             this.maxSpeed = maxSpeed;
             return this;
         }
@@ -50,23 +51,14 @@ public class RaceCar {
             return this;
         }
 
-        private int getMaxSpeed() {
-            return maxSpeed;
+        void restet(){
+            maxSpeed=140;
+            numberOfGears=5;
+            modelName=null;
+            driver=null;
         }
 
-        private int getNumberOfGears() {
-            return numberOfGears;
-        }
-
-        private String getModelName() {
-            return modelName;
-        }
-
-        private Driver getDriver() {
-            return driver;
-        }
-
-        public RaceCar Create(){
+        RaceCar build(){
             return new RaceCar(this);
         }
 
