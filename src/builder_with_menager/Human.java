@@ -1,4 +1,4 @@
-package builder.builder_with_menager;
+package builder_with_menager;
 
 public class Human {
     private int age;

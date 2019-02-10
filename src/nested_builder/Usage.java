@@ -1,4 +1,4 @@
-package builder.nested_builder;
+package nested_builder;
 
 public class Usage {
 
