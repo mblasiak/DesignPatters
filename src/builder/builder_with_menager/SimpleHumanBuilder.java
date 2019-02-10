@@ -1,33 +1,43 @@
 package builder.builder_with_menager;
 
 public class SimpleHumanBuilder implements HumanBuilder {
-    private String name;
-    private int age;
 
-    SimpleHumanBuilder(String name) {
-        this.name = name;
-    }
+    private Human human;
+    private String name;
 
     @Override
-    public Human Create() {
-        return new Human(this);
+    public Human build() {
+        Human h=human;
+        this.reset();
+        return h;
+    }
 
+    SimpleHumanBuilder(String name) {
+        human=new Human(name);
+        this.name=name;
     }
 
     @Override
     public HumanBuilder setAge(int age) {
-        this.age=age;
+        human.setAge(age);
         return this;
+    }
+    @Override
+    public HumanBuilder setPesel(String pesel) {
+        human.setPesel(pesel);
+        return this;
+    }
 
+
+    @Override
+    public HumanBuilder setPassion (String passion) {
+        human.setPassion(passion);
+        return this;
     }
 
     @Override
-    public int getAge() {
-        return this.age;
-    }
-
-    @Override
-    public String getName() {
-        return this.name;
+    public void reset() {
+        human=null;
+        human=new Human(this.name);
     }
 }

@@ -2,9 +2,10 @@ package builder.builder_with_menager;
 
 public interface HumanBuilder {
 
-    Human Create();
+    Human build();
     HumanBuilder setAge(int age);
-    int getAge();
-    String getName();
+    HumanBuilder setPesel(String pesel);
+    HumanBuilder setPassion(String passion);
+    void reset();
 
 }
